@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolão Esportes da Sorte 2026</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --blue-deeper: #02003a;
+        --blue-dark: #040b59;
+        --blue: #0f1768;
+        --blue-light: #082a79;
+        --green: #2ee683;
+        --mint: #a0f5c6;
+        --green-dark: #00a84d;
+        --green-glow: rgba(0, 213, 99, 0.3);
+        --white: #ffffff;
+        --off-white: #dddddd;
+        --white-border: rgba(255, 255, 255, 0.17);
+        --shadow: rgba(0, 0, 0, 0.35);
+
+        /* FONT SIZES — fluid clamp entre ~360px e ~1440px */
+        --font-xs: clamp(0.775rem, 0.7rem + 0.25vw, 0.9rem);
+        --font-sm: clamp(0.925rem, 0.85rem + 0.4vw, 1.1rem);
+        --font-md: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+        --font-lg: clamp(1.175rem, 1rem + 1.1vw, 1.75rem);
+        --font-xl: clamp(1.2rem, 1rem + 1.25vw, 2.75rem);
+
+        /* SPACING SCALE */
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: clamp(2rem, 1rem + 3vw, 4rem);
+      }
+
+      html,
+      body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      .page-bg {
+        min-height: 100vh;
+        width: 100%;
+        background-color: var(--blue-deeper);
+        background-image:
+         
+          linear-gradient(
+            180deg,
+            var(--blue-deeper) 0%,
+            var(--blue-dark) 15%,
+            var(--blue-light) 45%,
+            var(--blue-dark) 70%,
+            var(--blue-deeper) 95%
+          );
+      }
+
+      section {
+        padding: var(--space-2xl) 0;
+      }
+
+      #learn-more {
+        width: 100%;
+        max-width: 1280px;
+        background-color: transparent;
+        margin: 0 auto;
+        color: var(--off-white);
+        font-family: "Inter", sans-serif;
+        box-sizing: border-box;
+        position: relative;
+        padding: 0 var(--space-lg);
+      }
+
+      :where(#learn-more) :where(h1, h2, h3, p, ul, ol) {
+        margin: 0;
+      }
+
+      :where(#learn-more) :where(ul, ol) {
+        margin-top: var(--space-md);
+        padding-left: 0;
+        list-style-position: inside;
+        font-size: var(--font-sm);
+      }
+
+      :where(#learn-more) :where(ul li) {
+        margin: var(--space-sm) 0;
+      }
+
+      #learn-more h1 {
+        font-size: var(--font-xl);
+        line-height: 1.15;
+        text-wrap: balance;
+        overflow-wrap: break-word;
+        color: var(--green);
+      }
+
+      #learn-more h2 {
+        font-size: var(--font-lg);
+        text-wrap: balance;
+      }
+
+      #learn-more h3,
+      #learn-more summary {
+        font-size: var(--font-md);
+      }
+
+      #learn-more p {
+        font-size: var(--font-sm);
+        line-height: 1.4;
+      }
+
+      .hero {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(700px, 90vw);
+        aspect-ratio: 1;
+        transform: translate(-50%, -65%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-image {
+        max-width: 320px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .hero-cluster {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-lg);
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex-wrap: nowrap;
+      }
+
+      .hero-side {
+        width: clamp(70px, 22vw, 240px);
+        height: auto;
+        aspect-ratio: auto;
+        flex: 0 1 auto;
+        min-width: 0;
+        object-fit: contain;
+        opacity: 0.95;
+        filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+        will-change: transform;
+      }
+
+      .hero-side--left {
+        transform: rotate(-8deg);
+        animation: hero-float 5.5s ease-in-out -1.2s infinite;
+      }
+
+      .hero-side--right {
+        transform: rotate(8deg);
+        animation: hero-float 6s ease-in-out -2.6s infinite reverse;
+      }
+
+      .hero-cluster .hero-image {
+        width: clamp(110px, 30vw, 320px);
+        max-width: none;
+        aspect-ratio: auto;
+        flex: 0 1 auto;
+        min-width: 0;
+        filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55))
+          drop-shadow(0 0 40px rgba(46, 230, 131, 0.35));
+        animation: hero-bob 4.5s ease-in-out infinite;
+        will-change: transform;
+      }
+
+      @keyframes hero-float {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+        50% {
+          translate: 0 -10px;
+        }
+      }
+
+      @keyframes hero-bob {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+        50% {
+          translate: 0 -14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-side,
+        .hero-cluster .hero-image {
+          animation: none;
+        }
+      }
+
+      .hero-text {
+        text-align: center;
+        max-width: 800px;
+      }
+
+      .hero-text h1 {
+        margin-bottom: var(--space-sm);
+      }
+
+      .levels-content h2,
+      .shop-content h2 {
+        margin-bottom: var(--space-md);
+        color: var(--white);
+      }
+
+      .hero-cards {
+        padding-TOP: var(--space-sm);
+      }
+
+      .cards-learn-more {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        width: 100%;
+        place-content: center;
+        margin: 0 auto;
+        gap: var(--space-md);
+        box-sizing: border-box;
+      }
+
+      .card-learn-more {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+        flex-direction: column;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: start;
+      }
+
+      .card-learn-more h3 {
+        font-size: var(--font-sm) !important;
+        line-height: 1.3;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--mint);
+      }
+
+      .card-learn-more::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        padding: 1px;
+        background: linear-gradient(
+          to bottom,
+          var(--green) 0%,
+          var(--green-glow) 50%,
+          transparent 80%
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+
+      .shop-text,
+      .levels-text {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 65ch;
+      }
+
+      .levels-content {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-xl);
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      .shop-content {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-xl);
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .btn-shop {
+        margin-top: var(--space-lg);
+        font-weight: 700;
+        font-size: var(--font-sm);
+        padding: 12px 24px;
+        cursor: pointer;
+        background: linear-gradient(
+          to bottom,
+          var(--green) 0%,
+          var(--green-dark) 70%
+        );
+
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-shop:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px var(--shadow);
+      }
+
+      .faq-content {
+        text-align: center;
+      }
+
+      .faq-content h2 {
+        margin-bottom: var(--space-lg);
+        color: var(--white);
+      }
+
+      details {
+        border-radius: 4px;
+        border: 1px var(--blue-light) solid;
+        max-width: 900px;
+        margin: 12px auto;
+        background-color: var(--blue-dark);
+        box-shadow: 0 3px 6px var(--shadow);
+      }
+
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: var(--space-md);
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .chevron {
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+      }
+
+      details[open] summary .chevron {
+        transform: rotate(180deg);
+      }
+
+      .answer {
+        padding: var(--space-md) 0;
+        margin: 0 var(--space-md);
+        border-top: 1px solid var(--blue-light);
+        text-align: start;
+      }
+
+      .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-back {
+        border: none;
+        color: var(--blue-deeper);
+        padding: 6px 14px;
+        border-radius: 20px;
+        background-color: var(--green);
+        top: 12px;
+        left: 12px;
+        position: fixed;
+        cursor: pointer;
+        font-size: clamp(0.7rem, 0.6rem + 0.4vw, 0.9rem);
+        transition: all 0.3s ease-in-out;
+        font-weight: 700;
+        box-shadow: 0 4px 10px var(--shadow);
+        z-index: 999999;
+      }
+
+      .btn-back:hover {
+        background-color: var(--green-dark);
+      }
+
+      .image-placeholder {
+        flex: 1 1 320px;
+        max-width: 560px;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        border: 2px dashed var(--white-border);
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white-border);
+        font-size: var(--font-sm);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .section-image {
+        flex: 1 1 0;
+        max-width: 480px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      @media (max-width: 768px) {
+        #learn-more {
+          text-align: center;
+          padding: 0 18px;
+        }
+
+        .hero-cluster {
+          gap: var(--space-sm);
+        }
+
+        .levels-content,
+        .shop-content {
+          flex-direction: column;
+          gap: var(--space-lg);
+        }
+
+        .shop-text,
+        .levels-text {
+          flex: 0 1 auto;
+        }
+
+        .cards-learn-more {
+          gap: var(--space-sm);
+        }
+
+        .card-learn-more {
+          text-align: center;
+        }
+
+        .list-learn-more {
+          list-style: none;
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .list-learn-more li {
+          padding: 0.2rem 0 0.4rem;
+          border-bottom: 1px solid var(--white-border);
+        }
+
+        .list-learn-more li:last-child {
+          border-bottom: none;
+        }
+
+        .section-image {
+          flex: 0 1 auto;
+          max-width: 360px;
+        }
+
+        section {
+          padding: var(--space-lg) 0;
+        }
+
+        #learn-more summary {
+          text-align: start;
+          font-size: var(--font-xs);
+          gap: 4px;
+        }
+
+        .btn-shop {
+          width: 100%;
+          max-width: 620px;
+        }
+
+        .answer {
+          font-size: var(--font-xs) !important;
+        }
+
+        .btn-back {
+          top: 8px;
+          left: 6px;
+          padding: 5px 10px;
+          gap: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-bg">
+      <main id="learn-more">
+        <button class="btn btn-back" type="button" onclick="history.back()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          voltar
+        </button>
+        <section class="hero">
+          <div class="hero-content">
+            <div class="hero-cluster">
+              <img
+                class="hero-side hero-side--left"
+                src="https://pub-405e5d77415b46aba192ede656ac502d.r2.dev/cleat.webp"
+                alt="Chuteira"
+                loading="lazy"
+                decoding="async"
+                width="180"
+                height="180"
+              />
+              <img
+                class="hero-image"
+                src="https://pub-405e5d77415b46aba192ede656ac502d.r2.dev/soccer_ball.webp"
+                alt="Bola de futebol em destaque"
+                loading="eager"
+                decoding="async"
+                width="320"
+                height="320"
+              />
+              <img
+                class="hero-side hero-side--right"
+                src="https://pub-405e5d77415b46aba192ede656ac502d.r2.dev/trophy.webp"
+                alt="Troféu"
+                loading="lazy"
+                decoding="async"
+                width="180"
+                height="180"
+              />
+            </div>
+            <div class="hero-text">
+              <h1>Bolão Esportes da Sorte 2026</h1>
+              <p>
+                Palpite nos jogos do maior evento futebolístico do mundo e
+                concorra a uma premiação total de
+                <strong>R$ 1.000.000,00</strong>. Participação gratuita,
+                exclusiva para apostadores cadastrados de
+                <strong>18/05/2026 a 19/07/2026</strong>.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="hero-cards">
+          <div class="cards-learn-more">
+            <div class="card-learn-more">
+              <h3>1º passo — Acesse o Bolão</h3>
+              <p>
+                Entre na sua conta da Esportes da Sorte e acesse a página
+                dedicada à ação promocional no site oficial.
+              </p>
+            </div>
+            <div class="card-learn-more">
+              <h3>2º passo — Faça seu palpite</h3>
+              <p>
+                Escolha o resultado das partidas disponíveis e
+                <strong>salve</strong> seu palpite até 15 minutos antes do
+                início de cada jogo.
+              </p>
+            </div>
+            <div class="card-learn-more">
+              <h3>3º passo — Acumule pontos</h3>
+              <p>
+                Ganhe pontos a cada acerto. Placar exato vale mais e cada fase
+                do torneio tem um peso diferente na pontuação.
+              </p>
+            </div>
+            <div class="card-learn-more">
+              <h3>4º passo — Ganhe prêmios</h3>
+              <p>
+                Os 1.000 melhores colocados do ranking dividem
+                <strong>R$ 1.000.000</strong> em prêmios diretamente no saldo.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="levels">
+          <div class="levels-content">
+            <img
+              class="section-image"
+              src="https://pub-405e5d77415b46aba192ede656ac502d.r2.dev/score.webp"
+              alt="Ilustração do sistema de pontuação"
+              loading="lazy"
+              decoding="async"
+              width="560"
+              height="420"
+            />
+            <div class="levels-text">
+              <h2>Como pontuar</h2>
+              <p>
+                A pontuação é calculada pela
+                <strong>precisão do palpite</strong> em cada partida,
+                multiplicada pelo <strong>peso da fase</strong> em que o jogo
+                acontece. Quanto mais avançada a fase, maior o peso e maior a
+                recompensa por acerto. <br /><br />
+                <strong>Base de pontos:</strong> Placar Exato vale 15 pts e
+                Vencedor vale 5 pts na Fase de Grupos; nas eliminatórias os
+                valores sobem para 30/10 e 45/15. Em seguida, o resultado é
+                multiplicado pelo peso da fase. <br /><br />
+                <strong>Pesos por fase:</strong> Grupos Sem. 1 (×5), Sem. 2
+                (×7), Sem. 3 (×9), Primeira Eliminatória (×12), Oitavas (×14),
+                Quartas (×16), Semifinal (×18), Disputa de 3º lugar (×19) e
+                <strong>Final (×25)</strong>. <br /><br />
+                <em
+                  >Exemplo: um placar exato acertado na Final equivale a 45 × 25
+                  = <strong>1.125 pontos</strong>.</em
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="shop">
+          <div class="shop-content">
+            <div class="shop-text">
+              <h2>Premiação</h2>
+              <p>
+                Ao final do torneio, os
+                <strong>1.000 melhores colocados</strong> do ranking recebem o
+                prêmio diretamente no saldo da plataforma em até
+                <strong>7 dias úteis</strong>. Em caso de empate, o prêmio das
+                posições envolvidas é somado e dividido igualmente entre os
+                participantes empatados. <br /><br />
+                <strong>Principais prêmios:</strong>
+              </p>
+              <ul class="list-learn-more">
+                <li>1º colocado — R$ 250.000,00</li>
+                <li>2º colocado — R$ 150.000,00</li>
+                <li>3º colocado — R$ 50.000,00</li>
+                <li>4º colocado — R$ 20.000,00</li>
+                <li>5º ao 9º — de R$ 15.000 a R$ 6.000</li>
+                <li>10º ao 49º — de R$ 5.000 a R$ 4.000</li>
+                <li>50º ao 1000º — de R$ 1.000 a R$ 100</li>
+              </ul>
+              <button class="btn btn-shop">Ver ranking completo</button>
+            </div>
+            <img
+              class="section-image"
+              src="https://pub-405e5d77415b46aba192ede656ac502d.r2.dev/chest.webp"
+              alt="Baú de prêmios"
+              loading="lazy"
+              decoding="async"
+              width="560"
+              height="420"
+            />
+          </div>
+        </section>
+        <section class="faq-learn-more">
+          <div class="faq-content">
+            <h2>Dúvidas Frequentes</h2>
+            <details>
+              <summary>
+                Qual é o período da promoção?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                A campanha é válida de <strong>18/05/2026 a 19/07/2026</strong>.
+                Somente palpites efetuados estritamente dentro desse período
+                serão considerados para a pontuação do ranking.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Quem pode participar?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                Todos os apostadores com conta cadastrada e verificada na
+                Esportes da Sorte, considerados clientes ativos. A participação
+                é gratuita e opcional. Funcionários, prestadores diretamente
+                envolvidos na operação e pessoas legalmente impedidas não podem
+                participar.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Até quando posso fazer meus palpites?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                Você pode palpitar em todas as partidas disponibilizadas durante
+                o torneio. Recomendamos fortemente
+                <strong>salvar seus palpites até 15 minutos antes</strong> do
+                início programado de cada jogo.
+              </p>
+            </details>
+            <details>
+              <summary>
+                O que acontece em caso de empate no ranking?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                O valor do prêmio das posições empatadas é somado e dividido
+                igualmente entre os participantes. Cada participante pode
+                receber apenas um prêmio por torneio, correspondente à sua
+                melhor posição.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Quando recebo meu prêmio?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                Finalizado o bolão, o pagamento é feito em até
+                <strong>7 dias úteis</strong> diretamente no saldo dos
+                apostadores que figurarem no ranking de premiação. O prêmio é
+                pessoal e intransferível.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Palpites de apostas canceladas valem?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                Não. Palpites ou apostas esportivas que forem cancelados,
+                liquidados via cashout, não computados ou invalidados não terão
+                validade para a promoção.
+              </p>
+            </details>
+            <details>
+              <summary>
+                E o Jogo Responsável?
+                <svg
+                  class="chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <p class="answer">
+                A ação segue as diretrizes do Programa de Jogo Responsável da
+                EGB. Usuários com bloqueio voluntário, autoexclusão ou
+                restrições ativas têm a participação automaticamente suspensa.
+                Ferramentas de limite de depósito, tempo de sessão e
+                autoexclusão estão disponíveis na sua conta.
+              </p>
+            </details>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
